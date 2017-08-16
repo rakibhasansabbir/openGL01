@@ -39,6 +39,7 @@ public class Display {
                 GLFW.glfwSetWindowShouldClose(window, true);
             }
         });
+        
         GLFW.glfwMakeContextCurrent(window);  //for drow anything
     }
 
@@ -56,17 +57,17 @@ public class Display {
     private void drow() {
         GL11.glPushMatrix();
         GL11.glRotatef(angle, 0, 0, 1);
-        GL11.glBegin(GL11.GL_LINES);
+        GL11.glBegin(GL11.GL_QUADS);
             GL11.glVertex3f(-0.0f, 0, 0);
             GL11.glVertex3f(0.4f, 0, 0);     //drow x exis line
             
-            GL11.glVertex3f(0.4f, -0.1f, 0);
-            GL11.glVertex3f(0.4f, 0.1f, 0);  //drow y exis line from 0.4f
+            GL11.glVertex3f(0.4f, -0.05f, 0);
+            GL11.glVertex3f(0.4f, 0.05f, 0);  //drow y exis line from 0.4f
             
-            GL11.glVertex3f(0.4f, 0.1f, 0);
+            GL11.glVertex3f(0.4f, 0.05f, 0);
             GL11.glVertex3f(0.5f, 0, 0);     //connect x and y exis endpoint
             
-            GL11.glVertex3f(0.4f, -0.1f, 0);
+            GL11.glVertex3f(0.4f, -0.05f, 0);
             GL11.glVertex3f(0.5f, 0, 0);     //connect x and -y exis endpoint
 
 
