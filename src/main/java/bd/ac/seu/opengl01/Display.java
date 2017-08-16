@@ -16,8 +16,10 @@ import org.lwjgl.opengl.GL11;
  */
 public class Display {
     private long window;
+    private long angle;
 
     public Display() {
+        angle = 0;
     }
        
     public void run(){
@@ -42,16 +44,17 @@ public class Display {
             GLFW.glfwSwapBuffers(window);
             GLFW.glfwPollEvents();  //just check window occur or not
         }
-    }
+    }   
 
     private void drow() {
         GL11.glPushMatrix();
-        GL11.glRotatef(45, 0, 0, 1);
+        GL11.glRotatef(angle, 0, 0, 1);
         GL11.glBegin(GL11.GL_LINES);
             GL11.glVertex3f(0, 0, 0);
             GL11.glVertex3f(0.5f, 0, 0);
         GL11.glEnd();
         GL11.glPopMatrix();
+        angle +=1; 
         
         
         
