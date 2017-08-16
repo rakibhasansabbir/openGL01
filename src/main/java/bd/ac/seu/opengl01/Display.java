@@ -53,9 +53,18 @@ public class Display {
         GL11.glBegin(GL11.GL_LINES);
             GL11.glVertex3f(-0.0f, 0, 0);
             GL11.glVertex3f(0.5f, 0, 0);
+            GL11.glVertex3f(0.4f, -0.1f, 0);
+            GL11.glVertex3f(0.4f, 0.1f, 0);
+            GL11.glVertex3f(0.4f, 0.1f, 0);
+            GL11.glVertex3f(0.5f, 0, 0);
+            GL11.glVertex3f(0.4f, -0.1f, 0);
+            GL11.glVertex3f(0.5f, 0, 0);
+
+
+
         GL11.glEnd();
         GL11.glPopMatrix();
-        angle +=1; 
+        angle -=1; 
         
     }
     
