@@ -7,6 +7,8 @@ package bd.ac.seu.opengl01;
 
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFW;
+import org.lwjgl.opengl.GL;
+import org.lwjgl.opengl.GL11;
 
 /**
  *
@@ -29,12 +31,29 @@ public class Display {
         if(!GLFW.glfwInit())
             throw new IllegalStateException("Could not initialize GLFW"); 
         window = GLFW.glfwCreateWindow(800, 600, "LWJGL Display", 0, 0);
+        GLFW.glfwMakeContextCurrent(window);  //for drow anything
     }
 
     private void loop() {
+        GL.createCapabilities();  //create capabilities for my computer 
+        
         while(!GLFW.glfwWindowShouldClose(window)){
-            GLFW.glfwPollEvents();
+            drow();
+            GLFW.glfwSwapBuffers(window);
+            GLFW.glfwPollEvents();  //just check window occur or not
         }
+    }
+
+    private void drow() {
+        GL11.glBegin(GL11.GL_LINES);
+            GL11.glVertex3f(-1, 0, 0);
+            GL11.glVertex3f(1, 0, 0);
+        GL11.glEnd();
+        
+        
+        
+        
+        
     }
     
     
