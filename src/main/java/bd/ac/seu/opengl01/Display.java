@@ -33,6 +33,12 @@ public class Display {
         if(!GLFW.glfwInit())
             throw new IllegalStateException("Could not initialize GLFW"); 
         window = GLFW.glfwCreateWindow(600, 600, "LWJGL Display", 0, 0);
+        
+        GLFW.glfwSetKeyCallback(window, (window,key,scancode,action,mods) ->{
+            if(key == GLFW.GLFW_KEY_ESCAPE && action == GLFW.GLFW_RELEASE){
+                GLFW.glfwSetWindowShouldClose(window, true);
+            }
+        });
         GLFW.glfwMakeContextCurrent(window);  //for drow anything
     }
 
@@ -52,13 +58,16 @@ public class Display {
         GL11.glRotatef(angle, 0, 0, 1);
         GL11.glBegin(GL11.GL_LINES);
             GL11.glVertex3f(-0.0f, 0, 0);
-            GL11.glVertex3f(0.5f, 0, 0);
+            GL11.glVertex3f(0.4f, 0, 0);     //drow x exis line
+            
             GL11.glVertex3f(0.4f, -0.1f, 0);
+            GL11.glVertex3f(0.4f, 0.1f, 0);  //drow y exis line from 0.4f
+            
             GL11.glVertex3f(0.4f, 0.1f, 0);
-            GL11.glVertex3f(0.4f, 0.1f, 0);
-            GL11.glVertex3f(0.5f, 0, 0);
+            GL11.glVertex3f(0.5f, 0, 0);     //connect x and y exis endpoint
+            
             GL11.glVertex3f(0.4f, -0.1f, 0);
-            GL11.glVertex3f(0.5f, 0, 0);
+            GL11.glVertex3f(0.5f, 0, 0);     //connect x and -y exis endpoint
 
 
 
