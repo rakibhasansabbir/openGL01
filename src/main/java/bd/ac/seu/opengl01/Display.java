@@ -45,10 +45,13 @@ public class Display {
     }
 
     private void drow() {
+        GL11.glPushMatrix();
+        GL11.glRotatef(45, 0, 0, 1);
         GL11.glBegin(GL11.GL_LINES);
-            GL11.glVertex3f(-1, 0, 0);
-            GL11.glVertex3f(1, 0, 0);
+            GL11.glVertex3f(0, 0, 0);
+            GL11.glVertex3f(0.5f, 0, 0);
         GL11.glEnd();
+        GL11.glPopMatrix();
         
         
         
